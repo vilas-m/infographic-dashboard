@@ -6,9 +6,10 @@ function App() {
       // display: 'flex',
       // flexDirection: 'column',
       width: '100%',
-      height: '100vh',
+      // height: '100vh',
       background: '#111727',
-      color: '#fff'
+      color: '#fff',
+      oveflow: 'auto'
     }}>
      <Main />
     </div>
