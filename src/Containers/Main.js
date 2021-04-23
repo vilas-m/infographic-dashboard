@@ -1,4 +1,5 @@
 import React from "react";
+import Baloon from "../Charts/Baloon";
 import CircularBarChart from "../Charts/CircularBarChart";
 import CompleteBarChart from "../Charts/CompleteBarChart";
 import GaugeChart from "../Charts/GaugeChart";
@@ -7,6 +8,7 @@ import GradientBarChart from "../Charts/GradientBarChart";
 import LineChart from "../Charts/LineChart";
 import Mountain from "../Charts/Mountain";
 import MultiMountain from "../Charts/MultiMountain";
+import MultiMountain2 from "../Charts/MultiMountain2";
 
 const Main = () => {
   return (
@@ -283,7 +285,8 @@ const Main = () => {
           height: "40%",
           justifyContent: "space-between",
           margin: 20,
-          marginTop: 0
+          marginTop: 0,
+          stroke: '#475779'
         }}
       >
         <div
@@ -292,8 +295,6 @@ const Main = () => {
             background:
               "linear-gradient(132deg, rgba(28,21,114,1) 20%, rgba(212,42,147,1) 95%)",
             borderRadius: 5,
-
-            
           }}
         >
           <MultiMountain />
@@ -303,9 +304,17 @@ const Main = () => {
             width: "35%",
             background: "#162043",
             borderRadius: 5,
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <Mountain />
+          <Baloon text={23}/>
+          <Baloon text={92}/>
+          <Baloon text={72}/>
+          <Baloon text={63}/>
+          <Baloon text={43}/>
         </div>
         <div
           style={{
@@ -314,7 +323,7 @@ const Main = () => {
             borderRadius: 5,
           }}
         >
-          <GaugeChart />
+          <MultiMountain2 />
         </div>
       </div>
  
