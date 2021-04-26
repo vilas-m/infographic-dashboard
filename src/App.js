@@ -7,7 +7,7 @@ function App() {
       // flexDirection: 'column',
       width: '100%',
       // height: '100vh',
-      background: '#111727',
+      backgroundColor: '#101626',
       color: '#fff',
       oveflow: 'auto'
     }}>

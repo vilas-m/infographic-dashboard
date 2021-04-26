@@ -11,8 +11,6 @@ const Gauge = ({ color, id, value }) => {
       .select("svg")
       .remove();
 
-    let value = Math.ceil(Math.random() * (30 - 360) + 360);
-
     let margin = 5;
     let width = 90;
     let height = 90;
@@ -26,27 +24,8 @@ const Gauge = ({ color, id, value }) => {
       .attr("height", height)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
+    let value = Math.ceil(Math.random() * (30 - 360) + 360);
 
-    let gradient = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "mygrad" + id) //id of the gradient
-      .attr("x1", "0%")
-      .attr("x2", "0%")
-      .attr("y1", "0%")
-      .attr("y2", "100%");
-
-    gradient
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", color)
-      .style("stop-opacity", 1);
-
-    gradient
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", "white")
-      .style("stop-opacity", 0);
 
     svg
       .append("path")
@@ -56,11 +35,11 @@ const Gauge = ({ color, id, value }) => {
           .arc()
           .innerRadius(radius * 0.77)
           .outerRadius(radius + 1)
-          .startAngle((value * Math.PI) / 180)
-          .endAngle((value * Math.PI) / 180 + (2 * Math.PI) / 2)
+          .startAngle(0)
+          .endAngle((value * Math.PI) / 180)
           .cornerRadius(10)
       )
-      .attr("fill", `url(#mygrad${id})`);
+      .attr("fill", color);
 
     svg
       .append("text")
