@@ -18,14 +18,10 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
       .remove();
 
     let margin = 3;
-    // let width = width;
-    // let height = height;
 
     let svg = d3
       .select("#gradientBarChart" + id)
       .append("svg")
-      //   .attr("width", width)
-      //   .attr("height", height)
       .attr("width", width + margin + margin)
       .attr("height", height + margin + margin)
       .append("g")

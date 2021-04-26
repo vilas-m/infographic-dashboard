@@ -26,7 +26,7 @@ const LineChart = () => {
       right: 10,
     };
 
-    let width = 320 - margin.left - margin.right;
+    let width = 300 - margin.left - margin.right;
     let height = 150 - margin.top - margin.bottom;
 
     let svg = d3

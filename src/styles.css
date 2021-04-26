@@ -1,0 +1,6 @@
+.rootContainer {
+  display: flex;
+  flex-direction: column;
+  height: 140%;
+  justify-content: space-between;
+}

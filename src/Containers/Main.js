@@ -10,15 +10,14 @@ import Mountain from "../Charts/Mountain";
 import MultiMountain from "../Charts/MultiMountain";
 import MultiMountain2 from "../Charts/MultiMountain2";
 
+
 const Main = () => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "140%",
         justifyContent: "space-between",
-        overflow: "auto",
       }}
     >
       <div
@@ -66,7 +65,6 @@ const Main = () => {
           flexDirection: "row",
           flexGrow: 1,
           justifyContent: "space-between",
-          //   width: "100%",
           height: "60%",
           margin: 20,
           marginTop: 0,

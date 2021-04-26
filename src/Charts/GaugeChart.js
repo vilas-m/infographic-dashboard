@@ -12,8 +12,8 @@ const Gauge = ({ color, id }) => {
       .remove();
 
     let margin = 5;
-    let width = 90;
-    let height = 90;
+    let width = 100;
+    let height = 100;
 
     let radius = Math.min(width, height) / 2 - margin / 2;
 
@@ -25,7 +25,6 @@ const Gauge = ({ color, id }) => {
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
     let value = Math.ceil(Math.random() * (30 - 360) + 360);
-
 
     svg
       .append("path")
@@ -88,10 +87,8 @@ const GaugeChart = () => {
   return (
     <div
       style={{
-        // padding: 10,
         width: "100%",
         height: "100%",
-        // background: 'red',
         display: "flex",
         flexDirection: "row",
         justifyContent: "center",

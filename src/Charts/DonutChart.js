@@ -10,8 +10,8 @@ const DonutChart = ({color, value, id}) => {
     d3.select("#donutChart" + id).select("svg").remove();
 
     let margin = 10;
-    let width = 70;
-    let height = 70;
+    let width = 75;
+    let height = 75;
 
     let radius = Math.min(width, height) / 2 - margin;
 

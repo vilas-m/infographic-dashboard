@@ -18,8 +18,8 @@ const GeoChart = () => {
       left: 5,
       right: 5,
     };
-    let width = 400 - margin.left - margin.right;
-    let height = 200 - margin.top - margin.bottom;
+    let width = 500 - margin.left - margin.right;
+    let height = 250 - margin.top - margin.bottom;
 
     let svg = d3
       .select("#geoChart")
@@ -33,7 +33,6 @@ const GeoChart = () => {
       .scale(width / 1.5 / Math.PI)
       .translate([width / 2.2, height / 1.7]);
 
-    console.log(":::::: ");
     svg
       .append("g")
       .selectAll("path")
@@ -61,14 +60,6 @@ const GeoChart = () => {
       .attr("cy", (d) => projection(d)[1])
       .attr("r", "4px")
       .attr("fill", "#e962c1");
-
-    //   svg.selectAll("text")
-    // 	.data(dots).enter()
-    // 	.append("circle")
-    // 	.attr("cx", (d) => projection(d)[0] )
-    // 	.attr("cy", (d) => projection(d)[1])
-    // 	.attr("r", "4px")
-    // 	.attr("fill", "blue")
   };
 
   return (
@@ -90,7 +81,6 @@ const GeoChart = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "70%",
-          //   background: "red",
           width: "100%",
         }}
         id="geoChart"
@@ -102,7 +92,6 @@ const GeoChart = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "30%",
-          //   background: "green",
           width: "100%",
           fontSize: 12,
           color: "#adb5bd",
@@ -124,7 +113,7 @@ const GeoChart = () => {
                 style={{
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   alignItems: "center",
                 }}
               >

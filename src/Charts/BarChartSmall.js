@@ -1,25 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect , useRef } from "react";
 import * as d3 from "d3";
 
 const BarChartSmall = ({ color, text, id }) => {
+  const stageCanvasRef = useRef(null);
+
   useEffect(() => {
     draw();
   });
 
-  let data = [];
-
-  for (let i = 0; i < 10; i++) {
-    data.push(Math.ceil(Math.random() * (0 - 20) + 20));
-  }
-
   let draw = () => {
+    let data = [];
+
+    for (let i = 0; i < 10; i++) {
+      data.push(Math.ceil(Math.random() * (5 - 20) + 20));
+    }
     d3.select("#barChartSmall" + id)
       .select("svg")
       .remove();
 
     let margin = 5;
     let width = 50;
-    let height = 30;
+    let height = 25;
 
     let svg = d3
       .select("#barChartSmall" + id)

@@ -7,9 +7,7 @@ const CircularBarChart = () => {
   });
 
   let draw = () => {
-    d3.select("#circularBarChart")
-      .select("svg")
-      .remove();
+    d3.select("#circularBarChart").select("svg").remove();
 
     let margin = 10;
     let width = 100;
@@ -70,6 +68,7 @@ const CircularBarChart = () => {
       .attr("fill", "#1d2c4e")
       .attr("opacity", 0.7);
 
+    let endArcFactor = () => Math.random() * (0.9 - 3.7) + 3.7;
     svg
       .append("path")
       .attr(
@@ -77,12 +76,12 @@ const CircularBarChart = () => {
         d3
           .arc()
           .startAngle(0)
-          .endAngle(3.2*Math.PI /2)
+          .endAngle((endArcFactor() * Math.PI) / 2)
           .innerRadius(radius * 0.9)
           .outerRadius(radius)
           .cornerRadius(10)
       )
-      .attr("fill", '#8e49e1');
+      .attr("fill", "#8e49e1");
 
     svg
       .append("path")
@@ -91,12 +90,12 @@ const CircularBarChart = () => {
         d3
           .arc()
           .startAngle(0)
-          .endAngle(3.6*Math.PI /2)
+          .endAngle((endArcFactor() * Math.PI) / 2)
           .innerRadius(radius * 0.75)
           .outerRadius(radius * 0.85)
           .cornerRadius(10)
       )
-      .attr("fill", '#d74060');
+      .attr("fill", "#d74060");
 
     svg
       .append("path")
@@ -105,13 +104,12 @@ const CircularBarChart = () => {
         d3
           .arc()
           .startAngle(0)
-          .endAngle(3.5*Math.PI /2)
+          .endAngle((endArcFactor() * Math.PI) / 2)
           .innerRadius(radius * 0.6)
           .outerRadius(radius * 0.7)
           .cornerRadius(10)
       )
-      .attr("fill", '#ea5ef8');
-
+      .attr("fill", "#ea5ef8");
   };
 
   return <div id={"circularBarChart"}></div>;
