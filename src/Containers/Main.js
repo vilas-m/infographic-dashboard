@@ -10,7 +10,6 @@ import Mountain from "../Charts/Mountain";
 import MultiMountain from "../Charts/MultiMountain";
 import MultiMountain2 from "../Charts/MultiMountain2";
 
-
 const Main = () => {
   return (
     <div
@@ -18,6 +17,8 @@ const Main = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        fontFamily: "Open Sans, sans-serif",
+        fontWeight: "lighter",
       }}
     >
       <div
@@ -252,10 +253,11 @@ const Main = () => {
               >
                 <div
                   style={{
-                    fontSize: 28,
+                    fontSize: 38,
                     color: "#adb5bd",
                     alignSelf: "flex-end",
                     marginRight: 10,
+                    opacity: 0.6,
                   }}
                 >
                   {Math.ceil(Math.random() * (3000 - 8000) + 8000)}
@@ -267,7 +269,14 @@ const Main = () => {
                   bars={20}
                   padding={0.3}
                 />
-                <div style={{ fontSize: 8, color: "#adb5bd", marginLeft: 10 }}>
+                <div
+                  style={{
+                    fontSize: 8,
+                    color: "#adb5bd",
+                    marginLeft: 10,
+                    marginBottom: 7,
+                  }}
+                >
                   Excepteur sint occaecat
                   <br /> cupidatat non proident
                 </div>

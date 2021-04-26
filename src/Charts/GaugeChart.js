@@ -15,7 +15,7 @@ const Gauge = ({ color, id }) => {
     let width = 100;
     let height = 100;
 
-    let radius = Math.min(width, height) / 2 - margin / 2;
+    let radius = Math.min(width, height) / 2.1 - margin / 2;
 
     let svg = d3
       .select("#gaugeChart" + id)
@@ -45,9 +45,11 @@ const Gauge = ({ color, id }) => {
       .attr("x", 0)
       .attr("y", -5)
       .text(value)
-      .style("font-size", 20)
-      .style("font-weight", "bold")
-      .attr("text-anchor", "middle");
+      .style("font-size", 25)
+      .style("font-weight", "Regular")
+      .style("fill", "#424242")
+      .attr("text-anchor", "middle")
+
 
     svg
       .append("text")
@@ -62,10 +64,7 @@ const Gauge = ({ color, id }) => {
     <div
       style={{
         borderRadius: "50%",
-        width: 100,
-        height: 100,
         background: "white",
-        marginBottom: 15,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -104,11 +103,11 @@ const GaugeChart = () => {
           <div
             style={{
               margin: 5,
-              height: "100%",
+              height: "70%",
               width: "30%",
               display: "flex",
               flexDirection: "column",
-              justifyContent: "center",
+              justifyContent: "space-between",
               alignItems: "center",
             }}
           >
