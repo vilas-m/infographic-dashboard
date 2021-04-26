@@ -100,12 +100,14 @@ const MultiMountain = () => {
 
     svg
       .append("g")
+      .style('opacity', 0.5)
       .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(xScale).ticks(4));
+      .call(d3.axisBottom(xScale).ticks(4).tickSize(0))
+      .call((g) => g.select(".domain").remove())
+
 
     let yScale = d3.scaleLinear().domain([0, 10000]).range([height, 0]);
 
-    // svg.append("g").call(d3.axisBottom(xScale).ticks(5));
 
     svg
       .append("path")
@@ -183,7 +185,8 @@ const MultiMountain = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ width: "100%", textAlign: "center" }}>$9876788</div>
+        <div style={{ width: "100%", textAlign: "center", fontWeight: "bold",
+            color: "#adb5bd", }}>$9,876</div>
         <div
           style={{
             width: "100%",

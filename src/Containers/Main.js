@@ -107,6 +107,7 @@ const Main = () => {
                 flexDirection: "column",
                 alignItems: "center",
                 justifyContent: "center",
+                color: "#adb5bd",
               }}
             >
               <div
@@ -146,12 +147,26 @@ const Main = () => {
               height: "30%",
               borderRadius: 5,
               display: "flex",
+              flexDirection: "column",
               justifyContent: "center",
               alignItems: "center",
               background:
                 "linear-gradient(132deg, rgba(28,21,114,1) 20%, rgba(212,42,147,1) 95%)",
             }}
           >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                fontWeight: "lighter",
+                justifyContent: "space-around",
+                width: "100%",
+                color: "#adb5bd",
+              }}
+            >
+              <div> ▲ $782</div>
+              <div> ▼ $485</div>
+            </div>
             <CompleteBarChart />
           </div>
           <div
@@ -165,20 +180,52 @@ const Main = () => {
               alignItems: "center",
             }}
           >
-            <GradientBarChart
-              id="1"
-              width={70}
-              height={30}
-              bars={8}
-              padding={0.6}
-            />
-            <GradientBarChart
-              id="2"
-              width={70}
-              height={30}
-              bars={8}
-              padding={0.6}
-            />
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                color: "#adb5bd",
+                textAlign: "center",
+              }}
+            >
+              <div>738</div>
+              <GradientBarChart
+                id="1"
+                width={70}
+                height={30}
+                bars={8}
+                padding={0.6}
+              />
+              <div style={{ fontSize: 8, width: "80%" }}>
+                ullamco laboris
+                <br /> nisi ut
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                alignItems: "center",
+                color: "#adb5bd",
+                textAlign: "center",
+              }}
+            >
+              <div>287</div>
+              <GradientBarChart
+                id="2"
+                width={70}
+                height={30}
+                bars={8}
+                padding={0.6}
+              />
+              <div style={{ fontSize: 8, width: "80%" }}>
+                laboris ullamco <br />
+                nisi ut
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -188,96 +235,50 @@ const Main = () => {
             borderRadius: 5,
             display: "flex",
             flexDirection: "column",
-            justifyContent: "center",
+            justifyContent: "space-around",
             alignItems: "center",
           }}
         >
-          <GradientBarChart
-            id="3"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.3}
-          />
-          <GradientBarChart
-            id="4"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.3}
-          />
-          <GradientBarChart
-            id="5"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.4}
-          />
-          <GradientBarChart
-            id="6"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.3}
-          />
-          <GradientBarChart
-            id="7"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.3}
-          />
-          <GradientBarChart
-            id="7"
-            width={150}
-            height={50}
-            bars={20}
-            padding={0.3}
-          />
+          {[11, 22, 33, 44, 55, 66, 77].map((i) => {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "center",
+                  alignItems: "flex-end",
+                  width: "100%",
+                  height: "100%",
+                }}
+                key={i}
+              >
+                <div
+                  style={{
+                    fontSize: 28,
+                    color: "#adb5bd",
+                    alignSelf: "flex-end",
+                    marginRight: 10,
+                  }}
+                >
+                  {Math.ceil(Math.random() * (3000 - 8000) + 8000)}
+                </div>
+                <GradientBarChart
+                  id={i}
+                  width={150}
+                  height={50}
+                  bars={20}
+                  padding={0.3}
+                />
+                <div style={{ fontSize: 8, color: "#adb5bd", marginLeft: 10 }}>
+                  Excepteur sint occaecat
+                  <br /> cupidatat non proident
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
-      {/* <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          flexGrow: 1,
-          justifyContent: "space-between",
-            width: "100%",
-          height: "60%",
-          margin: 20,
-          marginTop: 0,
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "30%",
-            height: '100%'
-          }}
-        ></div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "35%",
-            height: '100%',
-            background: "#162043"
-          }}
-        ></div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "30%",
-            height: '100%'
-          }}
-        ></div>
-      </div> */}
-           <div
+      <div
         style={{
           display: "flex",
           flexDirection: "row",
@@ -286,7 +287,6 @@ const Main = () => {
           justifyContent: "space-between",
           margin: 20,
           marginTop: 0,
-          stroke: '#475779'
         }}
       >
         <div
@@ -304,17 +304,33 @@ const Main = () => {
             width: "35%",
             background: "#162043",
             borderRadius: 5,
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
           }}
         >
-          <Baloon text={23}/>
-          <Baloon text={92}/>
-          <Baloon text={72}/>
-          <Baloon text={63}/>
-          <Baloon text={43}/>
+          {[12, 23, 34, 45, 56].map((i) => {
+            return (
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+                key={i}
+              >
+                <Baloon text={Math.ceil(Math.random() * (30 - 99) + 99)} />
+                <div
+                  style={{ fontSize: 9, textAlign: "center", color: "#adb5bd" }}
+                >
+                  Duis aute <br />
+                  irure dolor
+                </div>
+              </div>
+            );
+          })}
         </div>
         <div
           style={{
@@ -326,7 +342,6 @@ const Main = () => {
           <MultiMountain2 />
         </div>
       </div>
- 
     </div>
   );
 };

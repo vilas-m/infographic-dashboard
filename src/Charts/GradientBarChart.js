@@ -17,7 +17,7 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
       .select("svg")
       .remove();
 
-    let margin = 16;
+    let margin = 3;
     // let width = width;
     // let height = height;
 

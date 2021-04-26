@@ -120,17 +120,18 @@ const MultiMountain2 = () => {
 
     svg
       .append("g")
+      .style('opacity', 0.5)
       .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(xScale).ticks(4));
+      .call(d3.axisBottom(xScale).ticks(4).tickSize(0))
+      .call((g) => g.select(".domain").remove());
 
     let yScale = d3.scaleLinear().domain([0, 10000]).range([height, 0]);
 
-    // svg.append("g").call(d3.axisBottom(xScale).ticks(5));
 
     svg
       .append("path")
       .datum(data1)
-      .attr("fill", 'url(#mygrad9)')
+      .attr("fill", "url(#mygrad9)")
       .attr("opacity", 0.2)
       // .attr("stroke-width", 4)
       .attr(
@@ -148,7 +149,7 @@ const MultiMountain2 = () => {
     svg
       .append("path")
       .datum(data2)
-      .attr("fill", 'url(#mygrad7)')
+      .attr("fill", "url(#mygrad7)")
       .attr("opacity", 0.3)
       // .attr("stroke-width", 4)
       .attr(
@@ -185,7 +186,8 @@ const MultiMountain2 = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ width: "100%", textAlign: "center" }}>$9876788</div>
+        <div style={{ width: "100%", textAlign: "center", fontWeight: "bold",
+            color: "#adb5bd", }}>$8,767</div>
         <div
           style={{
             width: "100%",

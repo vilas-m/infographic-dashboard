@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
-const Gauge = ({ color, id }) => {
+const Gauge = ({ color, id, value }) => {
   useEffect(() => {
     draw();
   });
@@ -10,10 +10,8 @@ const Gauge = ({ color, id }) => {
     d3.select("#gaugeChart" + id)
       .select("svg")
       .remove();
-    const data = [
-      { key: "sunday", value: 9, color: "red" },
-      { key: "monday", value: 9, color: "white" },
-    ];
+
+    let value = Math.ceil(Math.random() * (30 - 360) + 360);
 
     let margin = 5;
     let width = 90;
@@ -56,10 +54,10 @@ const Gauge = ({ color, id }) => {
         "d",
         d3
           .arc()
-          .innerRadius(radius * 0.75)
-          .outerRadius(radius)
-          .startAngle(0)
-          .endAngle((2 * Math.PI) / 2)
+          .innerRadius(radius * 0.77)
+          .outerRadius(radius + 1)
+          .startAngle((value * Math.PI) / 180)
+          .endAngle((value * Math.PI) / 180 + (2 * Math.PI) / 2)
           .cornerRadius(10)
       )
       .attr("fill", `url(#mygrad${id})`);
@@ -68,8 +66,9 @@ const Gauge = ({ color, id }) => {
       .append("text")
       .attr("x", 0)
       .attr("y", -5)
-      .text("50")
+      .text(value)
       .style("font-size", 20)
+      .style("font-weight", "bold")
       .attr("text-anchor", "middle");
 
     svg
@@ -120,51 +119,28 @@ const GaugeChart = () => {
         alignItems: "center",
       }}
     >
-      <div
-        style={{
-          //   background: "green",
-          margin: 5,
-          height: "100%",
-          width: "30%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Gauge color="red" id="1" />
-        <h6 style={{opacity: 0.5}}>CHORD</h6>
-      </div>
-      <div
-        style={{
-          //   background: "green",
-          margin: 5,
-          height: "100%",
-          width: "30%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Gauge color="blue" id="2" />
-        <h6 style={{opacity: 0.5}}>VOCIBUS</h6>
-      </div>
-      <div
-        style={{
-          //   background: "green",
-          margin: 5,
-          height: "100%",
-          width: "30%",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Gauge color="green" id="3" />
-        <h6 style={{opacity: 0.5}}>ADDLE</h6>
-      </div>
+      {[
+        { value: "ADDLE", color: "#ea63fc" },
+        { value: "VOCIBUS", color: "#2719dc" },
+        { value: "CHORD", color: "#33b3ec" },
+      ].map((i) => {
+        return (
+          <div
+            style={{
+              margin: 5,
+              height: "100%",
+              width: "30%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Gauge color={i.color} id={i.value} />
+            <h6 style={{ opacity: 0.5 }}>{i.value}</h6>
+          </div>
+        );
+      })}
     </div>
   );
 };

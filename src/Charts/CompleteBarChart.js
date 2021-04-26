@@ -8,7 +8,7 @@ const CompleteBarChart = () => {
 
   let data = [];
 
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i < 12; i++) {
     data.push(Math.ceil(Math.random() * (0 - 20) + 20));
   }
 
@@ -16,7 +16,7 @@ const CompleteBarChart = () => {
     d3.select("#barChartfull").select("svg").remove();
 
     let margin = 16;
-    let width = 120;
+    let width = 170;
     let height = 50;
 
     let svg = d3
@@ -33,18 +33,13 @@ const CompleteBarChart = () => {
       .scaleBand()
       .range([0, width])
       .domain(data.map((d, i) => i))
-      .padding(0.6);
-
-    // let xScale1 = d3
-    //   .scaleBand()
-    //   .range([0, width])
-    //   .domain(data.map((d, i) => i))
-    //   .padding(0.9);
+      .padding(0.6)
 
     svg
       .append("g")
+      .style('opacity', 0.5)
       .attr("transform", `translate(0, ${height})`)
-      .call(d3.axisBottom(xScale));
+      .call(d3.axisBottom(xScale).tickSize(0)).call(g => g.select(".domain").remove())
 
     let yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
 

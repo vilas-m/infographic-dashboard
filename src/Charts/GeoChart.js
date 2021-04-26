@@ -30,10 +30,10 @@ const GeoChart = () => {
 
     let projection = d3
       .geoNaturalEarth1()
-      .scale(width / 1.5/ Math.PI)
+      .scale(width / 1.5 / Math.PI)
       .translate([width / 2.2, height / 1.7]);
 
-      console.log(":::::: ");
+    console.log(":::::: ");
     svg
       .append("g")
       .selectAll("path")
@@ -42,31 +42,33 @@ const GeoChart = () => {
       .append("path")
       .attr("fill", "#23375a")
       .attr("d", d3.geoPath().projection(projection))
-      .on("mouseover", d => console.log(d) )
-      
-      let dots = [
-          [81.111256,30.183481]
-          ,[-53.628349,-26.124865],
-          [-89.272917,48.019808],
-          [30.055716,-31.140269],
-          [54.693024,24.797892]
-      ]
-      
-      svg.selectAll("circle")
-		.data(dots).enter()
-		.append("circle")
-		.attr("cx", (d) => projection(d)[0])
-		.attr("cy", (d) => projection(d)[1])
-		.attr("r", "4px")
-		.attr("fill", "#e962c1")
+      .on("mouseover", (d) => console.log(d));
+
+    let dots = [
+      [81.111256, 30.183481],
+      [-53.628349, -26.124865],
+      [-89.272917, 48.019808],
+      [30.055716, -31.140269],
+      [54.693024, 24.797892],
+    ];
+
+    svg
+      .selectAll("circle")
+      .data(dots)
+      .enter()
+      .append("circle")
+      .attr("cx", (d) => projection(d)[0])
+      .attr("cy", (d) => projection(d)[1])
+      .attr("r", "4px")
+      .attr("fill", "#e962c1");
 
     //   svg.selectAll("text")
-	// 	.data(dots).enter()
-	// 	.append("circle")
-	// 	.attr("cx", (d) => projection(d)[0] )
-	// 	.attr("cy", (d) => projection(d)[1])
-	// 	.attr("r", "4px")
-	// 	.attr("fill", "blue")
+    // 	.data(dots).enter()
+    // 	.append("circle")
+    // 	.attr("cx", (d) => projection(d)[0] )
+    // 	.attr("cy", (d) => projection(d)[1])
+    // 	.attr("r", "4px")
+    // 	.attr("fill", "blue")
   };
 
   return (
@@ -88,7 +90,7 @@ const GeoChart = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "70%",
-        //   background: "red",
+          //   background: "red",
           width: "100%",
         }}
         id="geoChart"
@@ -100,16 +102,38 @@ const GeoChart = () => {
           justifyContent: "center",
           alignItems: "center",
           height: "30%",
-        //   background: "green",
+          //   background: "green",
           width: "100%",
+          fontSize: 12,
+          color: "#adb5bd",
         }}
       >
-          <DonutChart color="#ea63fc" value="400" id="1"/>
-          <BarChartSmall color="#ea63fc" value="400" id="1"/>
-          <DonutChart color="#8a4edf" value="320" id="2"/>
-          <BarChartSmall color="#8a4edf" value="320" id="2"/>
-          <DonutChart color="#4a96c3" value="600" id="3"/>
-          <BarChartSmall color="#4a96c3" value="600" id="3"/>
+        {[
+          { value: "SCENB", color: "#ea63fc" },
+          { value: "CUNEVM", color: "#2719dc" },
+          { value: "PRIMIST", color: "#33b3ec" },
+        ].map((i) => {
+          return (
+            <>
+              <DonutChart
+                color={i.color}
+                value={Math.ceil(Math.random() * (200 - 700) + 700)}
+                id={i.value}
+              />
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                {i.value}
+                <BarChartSmall color={i.color} value="400" id={i.value} />
+              </div>
+            </>
+          );
+        })}
       </div>
     </div>
   );

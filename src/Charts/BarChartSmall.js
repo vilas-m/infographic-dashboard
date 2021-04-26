@@ -37,11 +37,6 @@ const BarChartSmall = ({ color, text, id }) => {
       .domain(data.map((d, i) => i))
       .padding(0.5);
 
-    // svg
-    //   .append("g")
-    //   .attr("transform", `translate(0, ${height})`)
-    //   .call(d3.axisBottom(xScale));
-
     let yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
 
     svg
@@ -53,23 +48,11 @@ const BarChartSmall = ({ color, text, id }) => {
       .attr("y", (d) => yScale(d))
       .attr("width", (d) => xScale.bandwidth())
       .attr("height", (d) => height - yScale(d))
-      .attr('rx', 2)
-      .attr("fill", color)
-
-    // svg.append("g").call(d3.axisLeft(yScale));
-
-    // svg
-    //   .append("text")
-    //   .attr("x", 0)
-    //   .attr("y", 5)
-    //   .text(value)
-    //   .style("font-size", 17)
-    //   .attr("fill", "#fff")
-    //   .attr("text-anchor", "middle");
+      .attr("rx", 2)
+      .attr("fill", color);
   };
 
   return <div id={"barChartSmall" + id}></div>;
 };
-// };
 
 export default BarChartSmall;

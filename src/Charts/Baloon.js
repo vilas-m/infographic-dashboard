@@ -15,10 +15,11 @@ const Baloon = ({text}) => {
                 width: 60,
                 height: 60,
                 background: "linear-gradient(132deg, rgba(28,21,114,1) 20%, rgba(212,42,147,1) 95%)",
-                // marginBottom: 15,
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
+                fontWeight: 'bold',
+                color: '#adb5bd'
               }}>{text}</div>
         </div>
     );

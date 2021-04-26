@@ -67,7 +67,7 @@ const Mountain = () => {
     gradient
       .append("stop")
       .attr("offset", "0%")
-      .style("stop-color", '#ac1f8c')
+      .style("stop-color", "#ac1f8c")
       .style("stop-opacity", 1);
 
     gradient
@@ -82,22 +82,21 @@ const Mountain = () => {
       .domain(data1.map((d) => d.year))
       .padding(0.1);
 
-      
     svg
-    .append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(xScale).ticks(4));
+      .append("g")
+      .style('opacity', 0.5)
+      .attr("transform", `translate(0, ${height})`)
+      .call(d3.axisBottom(xScale).ticks(4).tickSize(0))
+      .call((g) => g.select(".domain").remove())
+      
 
     let yScale = d3.scaleLinear().domain([0, 10000]).range([height, 0]);
 
-    // svg.append("g").call(d3.axisBottom(xScale).ticks(5));
 
     svg
       .append("path")
       .datum(data1)
       .attr("fill", `url(#mygrad)`)
-      // .attr("stroke", "steelblue")
-      // .attr("stroke-width", 4)
       .attr(
         "d",
         d3
@@ -150,7 +149,8 @@ const Mountain = () => {
           alignItems: "center",
         }}
       >
-        <div style={{ width: "100%", textAlign: "center" }}>$9876788</div>
+        <div style={{ width: "100%", textAlign: "center",fontWeight: "bold",
+            color: "#adb5bd", }}>$2,087</div>
         <div
           style={{
             width: "100%",
