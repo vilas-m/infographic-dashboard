@@ -18,8 +18,9 @@ const DonutChart = ({color, value, id}) => {
     let svg = d3
       .select("#donutChart" + id)
       .append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      .attr("width", '100%')
+      .attr("height", '100%')
+      .attr('viewBox', `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 

@@ -1,0 +1,60 @@
+.chartContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartHeader {
+  text-align: center;
+  font-weight: bold;
+  color: #adb5bd;
+  width: "100%";
+}
+
+.chartHeaderRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-weight: bold;
+  font-size: 1vw;
+  color: #adb5bd;
+  width: 100%;
+}
+
+.chart {
+  width: inherit;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.flexColAroundCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.flexRowCenter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

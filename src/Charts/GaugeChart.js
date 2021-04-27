@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import "./chartStyles.css";
 
 const Gauge = ({ color, id }) => {
   useEffect(() => {
@@ -20,11 +21,17 @@ const Gauge = ({ color, id }) => {
     let svg = d3
       .select("#gaugeChart" + id)
       .append("svg")
-      .attr("width", width)
-      .attr("height", height)
+      .attr("width", "85%")
+      .attr("height", "85%")
+      .attr("viewBox", `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
     let value = Math.ceil(Math.random() * (30 - 360) + 360);
+
+    svg
+      .append("circle")
+      .attr("r", radius * 1.1)
+      .style("fill", "white");
 
     svg
       .append("path")
@@ -48,8 +55,7 @@ const Gauge = ({ color, id }) => {
       .style("font-size", 25)
       .style("font-weight", "Regular")
       .style("fill", "#424242")
-      .attr("text-anchor", "middle")
-
+      .attr("text-anchor", "middle");
 
     svg
       .append("text")
@@ -60,57 +66,19 @@ const Gauge = ({ color, id }) => {
       .attr("text-anchor", "middle");
   };
 
-  return (
-    <div
-      style={{
-        borderRadius: "50%",
-        background: "white",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        id={"gaugeChart" + id}
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      ></div>
-    </div>
-  );
+  return <div id={"gaugeChart" + id} className={"flexRowCenter"}></div>;
 };
 
 const GaugeChart = () => {
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <div className={["w-100 h-100 flexRowCenter"]}>
       {[
         { value: "ADDLE", color: "#ea63fc" },
         { value: "VOCIBUS", color: "#2719dc" },
         { value: "CHORD", color: "#33b3ec" },
       ].map((i) => {
         return (
-          <div
-            style={{
-              margin: 5,
-              height: "70%",
-              width: "30%",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
-          >
+          <div className={["w-30 flexColAroundCenter"]}>
             <Gauge color={i.color} id={i.value} />
             <h6 style={{ opacity: 0.5 }}>{i.value}</h6>
           </div>

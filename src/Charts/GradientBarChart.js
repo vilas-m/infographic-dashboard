@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import {firstColor, secondColor} from '../Utils/chartColors'
 
 const GradientBarChart = ({ id, width, height, bars, padding }) => {
   useEffect(() => {
@@ -17,13 +18,17 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
       .select("svg")
       .remove();
 
-    let margin = 3;
+    let margin = 0;
+
+    // let width = 90;
+    // let height = 20;
 
     let svg = d3
       .select("#gradientBarChart" + id)
       .append("svg")
-      .attr("width", width + margin + margin)
-      .attr("height", height + margin + margin)
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${width + 2* margin} ${height + 2* margin}`)
       .append("g")
       .attr("transform", `translate(${margin}, ${margin})`);
 
@@ -36,7 +41,7 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
     let gradient = svg
       .append("defs")
       .append("linearGradient")
-      .attr("id", "mygrad4" + id) //id of the gradient
+      .attr("id", "mygrad4" + id)
       .attr("x1", "0%")
       .attr("x2", "0%")
       .attr("y1", "0%")
@@ -45,13 +50,13 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
     gradient
       .append("stop")
       .attr("offset", "0%")
-      .style("stop-color", "#8c00ff")
+      .style("stop-color", firstColor)
       .style("stop-opacity", 1);
 
     gradient
       .append("stop")
       .attr("offset", "100%")
-      .style("stop-color", "#d42a93")
+      .style("stop-color", secondColor)
       .style("stop-opacity", 1);
 
     let yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);

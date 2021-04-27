@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import "./chartStyles.css";
+import { firstColor, secondColor } from "../Utils/chartColors";
 
 const LineChart = () => {
   let data = [];
@@ -20,24 +22,29 @@ const LineChart = () => {
     d3.select("#lineChart").select("svg").remove();
 
     let margin = {
-      top: 5,
-      bottom: 10,
-      left: 30,
+      top: 10,
+      bottom: 20,
+      left: 50,
       right: 10,
     };
 
-    let width = 300 - margin.left - margin.right;
-    let height = 150 - margin.top - margin.bottom;
+    let width = 300;
+    let height = 150;
 
     let svg = d3
       .select("#lineChart")
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .attr("viewBox", `0 0 ${width} ${height}`)
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr(
+        "viewBox",
+        `0 0 ${width + margin.left + margin.right} ${
+          height + margin.top + margin.bottom
+        }`
+      )
+      .attr("preserveAspectRatio", "xMinYMin")
       .append("g")
-      .attr("transform", `translate(${margin.left}, ${margin.top})`)
-      .attr("layout-css", "justifyContent: center; flexGrow: 1");
+      .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     let gradient = svg
       .append("defs")
@@ -51,14 +58,27 @@ const LineChart = () => {
     gradient
       .append("stop")
       .attr("offset", "0%")
-      .style("stop-color", "#1f1472")
+      .style("stop-color", firstColor)
       .style("stop-opacity", 1);
 
     gradient
       .append("stop")
       .attr("offset", "100%")
-      .style("stop-color", "#ac1f8c")
+      .style("stop-color", secondColor)
       .style("stop-opacity", 1);
+
+    let defs = svg.append("defs");
+
+    //Filter for the outside glow
+    let filter = defs.append("filter").attr("id", "glow");
+    filter
+      .append("feGaussianBlur")
+      .attr("stdDeviation", "3.5")
+      .attr("result", "coloredBlur");
+
+    let feMerge = filter.append("feMerge");
+    feMerge.append("feMergeNode").attr("in", "coloredBlur");
+    feMerge.append("feMergeNode").attr("in", "SourceGraphic");
 
     let xScale = d3
       .scaleBand()
@@ -66,7 +86,7 @@ const LineChart = () => {
       .domain(data.map((d) => d.year))
       .padding(0.1);
 
-    let yScale = d3.scaleLinear().domain([-10000, 10000]).range([height, 0]);
+    let yScale = d3.scaleLinear().domain([-7000, 10000]).range([height, 0]);
 
     svg
       .append("g")
@@ -78,6 +98,7 @@ const LineChart = () => {
       .append("path")
       .datum(data)
       .attr("fill", "none")
+      .attr("class", "glow1")
       .attr("stroke", "url(#lineChartGradient)")
       .attr("stroke-width", 4)
       .attr(
@@ -92,47 +113,14 @@ const LineChart = () => {
           })
           .curve(d3.curveBasis)
       );
+
+    d3.selectAll(".glow1").style("filter", "url(#glow)");
   };
 
   return (
-    <div
-      style={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          // width: "90%",
-          // height: "90%",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <div
-          style={{
-            width: "100%",
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "#adb5bd",
-          }}
-        >
-          $7,204
-        </div>
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
-          <div id="lineChart"></div>
-        </div>
-      </div>
+    <div className={["chartContainer"]}>
+      {/* <div className={["chartHeader"]}>$2,087</div> */}
+      <div className={"chart"} id="lineChart"></div>
     </div>
   );
 };

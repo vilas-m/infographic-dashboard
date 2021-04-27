@@ -18,15 +18,22 @@ const GeoChart = () => {
       left: 5,
       right: 5,
     };
-    let width = 500 - margin.left - margin.right;
-    let height = 250 - margin.top - margin.bottom;
+    let width = 480;
+    let height = 250;
 
     let svg = d3
       .select("#geoChart")
       .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-      .append("g");
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr(
+        "viewBox",
+        `0 0 ${width + margin.left + margin.right} ${
+          height + margin.top + margin.bottom
+        }`
+      )
+      .append("g")
+      .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
     let projection = d3
       .geoNaturalEarth1()
@@ -40,8 +47,7 @@ const GeoChart = () => {
       .enter()
       .append("path")
       .attr("fill", "#23375a")
-      .attr("d", d3.geoPath().projection(projection))
-      .on("mouseover", (d) => console.log(d));
+      .attr("d", d3.geoPath().projection(projection));
 
     let dots = [
       [81.111256, 30.183481],
@@ -67,10 +73,9 @@ const GeoChart = () => {
       style={{
         display: "flex",
         flexDirection: "column",
-        padding: 10,
         width: "100%",
         height: "100%",
-        justifyContent: "center",
+        justifyContent: "space-around",
         alignItems: "center",
       }}
     >
@@ -80,7 +85,6 @@ const GeoChart = () => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          height: "70%",
           width: "100%",
         }}
         id="geoChart"
@@ -91,8 +95,8 @@ const GeoChart = () => {
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
-          height: "30%",
           width: "100%",
+          height: "100%",
           fontSize: 12,
           color: "#adb5bd",
         }}
@@ -103,24 +107,14 @@ const GeoChart = () => {
           { value: "PRIMIST", color: "#33b3ec" },
         ].map((i) => {
           return (
-            <>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
               <DonutChart
                 color={i.color}
                 value={Math.ceil(Math.random() * (200 - 700) + 700)}
                 id={i.value}
               />
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                {i.value}
-                <BarChartSmall color={i.color} value="400" id={i.value} />
-              </div>
-            </>
+                <BarChartSmall color={i.color} value={i.value} id={i.value} />
+            </div>
           );
         })}
       </div>

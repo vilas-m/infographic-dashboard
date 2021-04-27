@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import "./chartStyles.css";
 
 const CompleteBarChart = () => {
   useEffect(() => {
@@ -15,15 +16,16 @@ const CompleteBarChart = () => {
   let draw = () => {
     d3.select("#barChartfull").select("svg").remove();
 
-    let margin = 16;
+    let margin = 5;
     let width = 150;
-    let height = 50;
+    let height = 40;
 
     let svg = d3
       .select("#barChartfull")
       .append("svg")
-      .attr("width", width + margin + margin)
-      .attr("height", height + margin + margin)
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${width + 2 * margin} ${height + 2 * margin}`)
       .append("g")
       .attr("transform", `translate(${margin}, ${margin})`);
 
@@ -66,7 +68,15 @@ const CompleteBarChart = () => {
       .attr("opacity", 0.5);
   };
 
-  return <div id={"barChartfull"}></div>;
+  return (
+    <div className={["chartContainer"]}>
+      <div className={["chartHeaderRow"]}>
+        <div> ▲ $782</div>
+        <div> ▼ $485</div>
+      </div>
+      <div className={["chart"]} id="barChartfull"></div>
+    </div>
+  );
 };
 
 export default CompleteBarChart;

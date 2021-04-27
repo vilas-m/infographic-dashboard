@@ -1,7 +1,7 @@
-import React, { useEffect , useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import * as d3 from "d3";
 
-const BarChartSmall = ({ color, text, id }) => {
+const BarChartSmall = ({ color, value, id }) => {
   const stageCanvasRef = useRef(null);
 
   useEffect(() => {
@@ -25,10 +25,12 @@ const BarChartSmall = ({ color, text, id }) => {
     let svg = d3
       .select("#barChartSmall" + id)
       .append("svg")
-      //   .attr("width", width)
-      //   .attr("height", height)
-      .attr("width", width + margin + margin)
-      .attr("height", height + margin + margin)
+      .attr("width", "100%")
+      .attr("height", "130%")
+      .attr(
+        "viewBox",
+        `0 0 ${width + margin + margin} ${height + margin + margin + 20}`
+      )
       .append("g")
       .attr("transform", `translate(${margin}, ${margin})`);
 
@@ -41,6 +43,17 @@ const BarChartSmall = ({ color, text, id }) => {
     let yScale = d3.scaleLinear().domain([0, 20]).range([height, 0]);
 
     svg
+      .append("text")
+      .attr("x", width / 2)
+      .attr("y", 10)
+      .text(value)
+      .style("font-size", 8)
+      .attr("fill", "#fff")
+      .attr("text-anchor", "middle");
+
+    svg
+      .append("g")
+      .attr("transform", `translate(0, 20)`)
       .selectAll("bars")
       .data(data)
       .enter()
@@ -53,7 +66,7 @@ const BarChartSmall = ({ color, text, id }) => {
       .attr("fill", color);
   };
 
-  return <div id={"barChartSmall" + id}></div>;
+  return <div style={{ height: "100%" }} id={"barChartSmall" + id}></div>;
 };
 
 export default BarChartSmall;
