@@ -31,10 +31,10 @@ const Main = () => {
         </div>
         <div className={["flexVerticle"]}>
           <div className={["chartCard h30 flexRowCentered"]}>
-            <div>
+            <div className={['w50']}>
               <CircularBarChart />
             </div>
-            <div>
+            <div className={['w50']}>
               <div className={["underlinedLegand bPurple"]}>9,736</div>
               <div className={["underlinedLegand bRed"]}>11,839</div>
               <div className={["underlinedLegand bPink"]}>8,283</div>

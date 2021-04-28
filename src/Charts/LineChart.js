@@ -29,7 +29,7 @@ const LineChart = () => {
     };
 
     let width = 300;
-    let height = 150;
+    let height = 170;
 
     let svg = d3
       .select("#lineChart")
@@ -118,7 +118,6 @@ const LineChart = () => {
 
   return (
     <div className={["chartContainer"]}>
-      {/* <div className={["chartHeader"]}>$2,087</div> */}
       <div className={"chart"} id="lineChart"></div>
     </div>
   );

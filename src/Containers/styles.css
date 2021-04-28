@@ -118,6 +118,10 @@
   width: 80%;
 }
 
+.w50 {
+  width: 50%;
+}
+
 .h30 {
   height: 30%;
 }
@@ -138,9 +142,8 @@
 }
 
 .underlinedLegand {
-  border-bottom: solid 3px;
-  width: 50px;
-  margin-right: 20px;
+  border-bottom: solid 0.2vw;
+  width: 90%;
   text-align: center;
   font-size: 1vw;
 }

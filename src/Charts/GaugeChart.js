@@ -80,7 +80,7 @@ const GaugeChart = () => {
         return (
           <div className={["w-30 flexColAroundCenter"]}>
             <Gauge color={i.color} id={i.value} />
-            <h6 style={{ opacity: 0.5 }}>{i.value}</h6>
+            <p style={{ opacity: 0.5, fontSize: '1vw' }}>{i.value}</p>
           </div>
         );
       })}

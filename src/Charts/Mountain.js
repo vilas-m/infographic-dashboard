@@ -136,7 +136,6 @@ const Mountain = () => {
 
   return (
     <div className={["chartContainer"]}>
-      {/* <div className={["chartHeader"]}>$2,087</div> */}
       <div className={["chart"]} id="mountainFirst"></div>
     </div>
   );
