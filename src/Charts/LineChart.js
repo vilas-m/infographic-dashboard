@@ -58,18 +58,17 @@ const LineChart = () => {
     gradient
       .append("stop")
       .attr("offset", "0%")
-      .style("stop-color", firstColor)
+      .style("stop-color", secondColor)
       .style("stop-opacity", 1);
 
     gradient
       .append("stop")
       .attr("offset", "100%")
-      .style("stop-color", secondColor)
+      .style("stop-color", firstColor)
       .style("stop-opacity", 1);
 
     let defs = svg.append("defs");
 
-    //Filter for the outside glow
     let filter = defs.append("filter").attr("id", "glow");
     filter
       .append("feGaussianBlur")

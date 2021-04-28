@@ -102,9 +102,9 @@ const GeoChart = () => {
         }}
       >
         {[
-          { value: "SCENB", color: "#ea63fc" },
-          { value: "CUNEVM", color: "#2719dc" },
-          { value: "PRIMIST", color: "#33b3ec" },
+          { value: "SCENB", color: "#01b1ff" },
+          { value: "CUNEVM", color: "#2200f9" },
+          { value: "PRIMIST", color: "#db09ff" },
         ].map((i) => {
           return (
             <div style={{display: 'flex', justifyContent: 'center'}}>
