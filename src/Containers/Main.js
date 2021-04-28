@@ -45,7 +45,7 @@ const Main = () => {
           </div>
           <div className={["flexRowCentered chartCard h30"]}>
             <div className={["flexColumnCentered"]}>
-              <div>738</div>
+              <div className={['gradientBarLegand']}>738</div>
               <GradientBarChart
                 id="1"
                 width={70}
@@ -59,7 +59,7 @@ const Main = () => {
               </div>
             </div>
             <div className={["flexColumnCentered"]}>
-              <div>287</div>
+              <div className={['gradientBarLegand']}>287</div>
               <GradientBarChart
                 id="2"
                 width={70}

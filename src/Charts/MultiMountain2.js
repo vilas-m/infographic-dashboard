@@ -57,7 +57,7 @@ const MultiMountain2 = () => {
 
     let margin = {
       top: 5,
-      bottom: 20,
+      bottom: 30,
       left: 15,
       right: 5,
     };

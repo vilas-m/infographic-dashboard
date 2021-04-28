@@ -16,9 +16,9 @@ const CompleteBarChart = () => {
   let draw = () => {
     d3.select("#barChartfull").select("svg").remove();
 
-    let margin = 5;
-    let width = 150;
-    let height = 40;
+    let margin = 10;
+    let width = 170;
+    let height = 30;
 
     let svg = d3
       .select("#barChartfull")

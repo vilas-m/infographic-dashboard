@@ -50,16 +50,20 @@
 }
 
 .smallLegand {
-  font-size: 8px;
+  font-size: 0.7vw;
   color: #adb5bd;
   margin-left: 10px;
-  margin-bottom: 7px;
+  /* margin-bottom: 7px; */
 }
 
 .baloonLegand {
-  font-size: 9px;
+  font-size: 0.7vw;
   text-align: center;
   color: #adb5bd;
+}
+
+.gradientBarLegand {
+  font-size: 2vw;
 }
 
 .h40 {
@@ -98,7 +102,7 @@
 }
 
 .chart7Legand {
-  font-size: 8px;
+  font-size: 0.7vw;
   width: 80%;
 }
 
