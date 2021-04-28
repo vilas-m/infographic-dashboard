@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
-import "./chartStyles.css";
+import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
 
 const Baloon = ({ text }) => {

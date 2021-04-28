@@ -1,0 +1,92 @@
+%flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+%flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+%fullWidth {
+  width: 100%;
+}
+
+%fullHeight {
+  height: 100%;
+}
+
+%justifyCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+%justifyAroundCenter {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.chartContainer {
+  @extend %fullWidth;
+  @extend %fullHeight;
+  @extend %flexColumn;
+  @extend %justifyCenter;
+}
+
+.chartHeader {
+  @extend %fullWidth;
+  text-align: center;
+  font-weight: bold;
+  color: #adb5bd;
+}
+
+.chartHeaderRow {
+  @extend %flexRow;
+  @extend %fullWidth;
+  @extend %justifyAroundCenter;
+  margin: 10px;
+  font-weight: bold;
+  font-size: 1vw;
+  color: #adb5bd;
+}
+
+.chart {
+  @extend %fullHeight;
+  @extend %flexRow;
+  @extend %justifyCenter;
+  width: inherit;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+}
+
+.gaugeName {
+  opacity: 0.5px;
+  font-size: 1.2vw;
+}
+
+.w-100 {
+  @extend %fullWidth;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.h-100 {
+  @extend %fullHeight;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.flexColAroundCenter {
+  @extend %flexColumn;
+  @extend %justifyAroundCenter;
+}
+
+.flexRowCenter {
+  @extend %flexRow;
+  @extend %justifyCenter;
+}

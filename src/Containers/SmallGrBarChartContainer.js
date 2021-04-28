@@ -1,6 +1,6 @@
 import React from "react";
 import GradientBarChart from "../Charts/GradientBarChart";
-import "./styles.css";
+import "./styles.scss";
 
 const SmallGrBarChartContainer = () => {
   return (

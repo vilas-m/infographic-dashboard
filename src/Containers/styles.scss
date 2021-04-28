@@ -1,44 +1,72 @@
-.rootContainer {
+%flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+%flexColumn {
   display: flex;
   flex-direction: column;
+}
+
+%fullWidth {
+  width: 100%;
+}
+
+%fullHeight {
+  height: 100%;
+}
+
+%justifyCenter {
   justify-content: center;
   align-items: center;
 }
 
-.topContainer {
-  display: flex;
-  flex-direction: column;
+%justifyCenterEnd {
+  justify-content: center;
+  align-items: flex-end;
+}
+
+%justifyAroundCenter {
+  justify-content: space-around;
+  align-items: center;
+}
+
+%justifyBetween {
   justify-content: space-between;
+}
+
+.rootContainer {
+  @extend %flexColumn;
+  @extend %justifyCenter;
+}
+
+.topContainer {
+  @extend %flexColumn;
+  @extend %justifyBetween;
   font-family: "Open Sans, sans-serif";
   font-weight: lighter;
 }
 
 .columnContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  @extend %flexRow;
+  @extend %justifyBetween;
   margin: 20px;
 }
 
 .flexVerticle {
+  @extend %flexColumn;
+  @extend %justifyBetween;
   width: 15%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }
 
 .flexColAround {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  @extend %flexColumn;
+  @extend %justifyAroundCenter;
 }
 
 .flexRowCenEnd {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-end;
+  @extend %flexRow;
+  @extend %justifyCenterEnd;
 }
 
 .bigLegand {
@@ -53,7 +81,6 @@
   font-size: 0.7vw;
   color: #adb5bd;
   margin-left: 10px;
-  /* margin-bottom: 7px; */
 }
 
 .baloonLegand {
@@ -86,18 +113,17 @@
 .chartCardGradient {
   background: linear-gradient(
     132deg,
-    rgba(28, 21, 114, 1) 20%,
-    rgba(212, 42, 147, 1) 95%
+    rgb(69, 57, 202) 20%,
+    rgb(255, 89, 191) 95%
   );
   border-radius: 5px;
 }
 
 .triangleLegand {
-  display: flex;
-  flex-direction: row;
+  @extend %flexRow;
+  @extend %fullWidth;
   font-weight: lighter;
   justify-content: space-around;
-  width: 100%;
   color: #adb5bd;
 }
 
@@ -135,17 +161,14 @@
 }
 
 .flexRowCentered {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @extend %flexRow;
+  @extend %justifyCenter;
 }
 
 .flexColumnCentered {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  @extend %flexColumn;
+  @extend %justifyCenter;
+
   color: #adb5bd;
 }
 

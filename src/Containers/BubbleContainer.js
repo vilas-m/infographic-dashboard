@@ -1,6 +1,6 @@
 import React from "react";
 import Baloon from "../Charts/Baloon";
-import "./styles.css";
+import "./styles.scss";
 
 const BubbleContainer = () => {
   return (

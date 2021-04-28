@@ -10,7 +10,7 @@ import CircularBarChartContainer from "./CircularBarChartContainer";
 import GeoChartContainer from "./GeoChartContainer";
 import GrBarChartContainer from "./GrBarChartContainer";
 import SmallGrBarChartContainer from "./SmallGrBarChartContainer";
-import "./styles.css";
+import "./styles.scss";
 
 const Main = () => {
   return (

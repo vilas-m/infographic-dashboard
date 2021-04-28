@@ -1,6 +1,6 @@
 import React from "react";
 import CircularBarChart from "../Charts/CircularBarChart";
-import "./styles.css";
+import "./styles.scss";
 
 const CircularBarChartContainer = () => {
   return (
