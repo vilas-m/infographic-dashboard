@@ -69,44 +69,16 @@ const GeoChart = () => {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100%",
-        justifyContent: "space-around",
-        alignItems: "center",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-        }}
-        id="geoChart"
-      ></div>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-          width: "100%",
-          height: "100%",
-          fontSize: 12,
-          color: "#adb5bd",
-        }}
-      >
+    <div className={["flexColAroundCenter"]}>
+      <div className={["flexRowCenter w-100"]} id="geoChart"></div>
+      <div className={["flexRowCenter w-100 h-100"]}>
         {[
           { value: "SCENB", color: "#01b1ff" },
           { value: "CUNEVM", color: "#2200f9" },
           { value: "PRIMIST", color: "#db09ff" },
         ].map((i) => {
           return (
-            <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className={["flexRowCenter"]}>
               <DonutChart
                 color={i.color}
                 value={Math.ceil(Math.random() * (200 - 700) + 700)}

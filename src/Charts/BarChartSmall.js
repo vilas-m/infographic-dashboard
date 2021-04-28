@@ -66,7 +66,7 @@ const BarChartSmall = ({ color, value, id }) => {
       .attr("fill", color);
   };
 
-  return <div style={{ height: "100%" }} id={"barChartSmall" + id}></div>;
+  return <div className={['h-100']} id={"barChartSmall" + id}></div>;
 };
 
 export default BarChartSmall;

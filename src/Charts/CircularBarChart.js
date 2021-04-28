@@ -18,9 +18,9 @@ const CircularBarChart = () => {
     let svg = d3
       .select("#circularBarChart")
       .append("svg")
-      .attr("width", '80%')
-      .attr("height", '80%')
-      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr("width", "80%")
+      .attr("height", "80%")
+      .attr("viewBox", `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
@@ -113,7 +113,7 @@ const CircularBarChart = () => {
       .attr("fill", "#ea5ef8");
   };
 
-  return <div style={{display:'flex', justifyContent: 'center', alignItems: 'center'}} id={"circularBarChart"}></div>;
+  return <div className={["flexRowCenter"]} id={"circularBarChart"}></div>;
 };
 
 export default CircularBarChart;

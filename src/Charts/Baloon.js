@@ -67,19 +67,7 @@ const Baloon = ({ text }) => {
       .attr("text-anchor", "middle");
   };
 
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        margin: 10,
-      }}
-    >
-      <div id={"bubble" + text} className={"flexRowCenter"}></div>
-    </div>
-  );
+  return <div id={"bubble" + text} className={"flexRowCenter m10"}></div>;
 };
 
 export default Baloon;

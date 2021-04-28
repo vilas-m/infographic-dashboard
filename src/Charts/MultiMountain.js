@@ -172,7 +172,6 @@ const MultiMountain = () => {
 
   return (
     <div className={["chartContainer"]}>
-      {/* <div className={["chartHeader"]}>$9,876</div> */}
       <div className={["chart"]} id="multi-mountain"></div>
     </div>
   );
