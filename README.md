@@ -19,3 +19,8 @@ run the application
 
 >To view the app on web, visit:  
 `https://vilas-m.github.io/infographic-dashboard/` 
+
+![Dashboard Image 1](https://github.com/vilas-m/infographic-dashboard/blob/master/Images/dashboard-1.PNG)
+
+
+![Dashboard Image 2](https://github.com/vilas-m/infographic-dashboard/blob/master/Images/dashboard-2.PNG)
