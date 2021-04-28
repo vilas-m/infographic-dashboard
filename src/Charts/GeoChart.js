@@ -68,29 +68,7 @@ const GeoChart = () => {
       .attr("fill", "#e962c1");
   };
 
-  return (
-    <div className={["flexColAroundCenter"]}>
-      <div className={["flexRowCenter w-100"]} id="geoChart"></div>
-      <div className={["flexRowCenter w-100 h-100"]}>
-        {[
-          { value: "SCENB", color: "#01b1ff" },
-          { value: "CUNEVM", color: "#2200f9" },
-          { value: "PRIMIST", color: "#db09ff" },
-        ].map((i) => {
-          return (
-            <div className={["flexRowCenter"]}>
-              <DonutChart
-                color={i.color}
-                value={Math.ceil(Math.random() * (200 - 700) + 700)}
-                id={i.value}
-              />
-              <BarChartSmall color={i.color} value={i.value} id={i.value} />
-            </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+  return <div className={["flexRowCenter w-100"]} id="geoChart"></div>;
 };
 
 export default GeoChart;

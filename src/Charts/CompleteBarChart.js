@@ -14,14 +14,14 @@ const CompleteBarChart = () => {
   }
 
   let draw = () => {
-    d3.select("#barChartfull").select("svg").remove();
+    d3.select("#completeBarChart1").select("svg").remove();
 
     let margin = 10;
     let width = 170;
-    let height = 30;
+    let height = 60;
 
     let svg = d3
-      .select("#barChartfull")
+      .select("#completeBarChart1")
       .append("svg")
       .attr("width", "100%")
       .attr("height", "100%")
@@ -74,7 +74,7 @@ const CompleteBarChart = () => {
         <div> ▲ $782</div>
         <div> ▼ $485</div>
       </div>
-      <div className={["chart"]} id="barChartfull"></div>
+      <div className={["chart"]} id="completeBarChart1"></div>
     </div>
   );
 };
