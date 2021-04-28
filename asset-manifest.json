@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/infographic-dashboard/static/css/main.eca70172.chunk.css",
-    "main.js": "/infographic-dashboard/static/js/main.80112718.chunk.js",
-    "main.js.map": "/infographic-dashboard/static/js/main.80112718.chunk.js.map",
+    "main.css": "/infographic-dashboard/static/css/main.162a4b86.chunk.css",
+    "main.js": "/infographic-dashboard/static/js/main.066fc3ed.chunk.js",
+    "main.js.map": "/infographic-dashboard/static/js/main.066fc3ed.chunk.js.map",
     "runtime-main.js": "/infographic-dashboard/static/js/runtime-main.d0a343c2.js",
     "runtime-main.js.map": "/infographic-dashboard/static/js/runtime-main.d0a343c2.js.map",
     "static/js/2.c2840684.chunk.js": "/infographic-dashboard/static/js/2.c2840684.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.373fe453.chunk.js": "/infographic-dashboard/static/js/3.373fe453.chunk.js",
     "static/js/3.373fe453.chunk.js.map": "/infographic-dashboard/static/js/3.373fe453.chunk.js.map",
     "index.html": "/infographic-dashboard/index.html",
-    "static/css/main.eca70172.chunk.css.map": "/infographic-dashboard/static/css/main.eca70172.chunk.css.map",
+    "static/css/main.162a4b86.chunk.css.map": "/infographic-dashboard/static/css/main.162a4b86.chunk.css.map",
     "static/js/2.c2840684.chunk.js.LICENSE.txt": "/infographic-dashboard/static/js/2.c2840684.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d0a343c2.js",
     "static/js/2.c2840684.chunk.js",
-    "static/css/main.eca70172.chunk.css",
-    "static/js/main.80112718.chunk.js"
+    "static/css/main.162a4b86.chunk.css",
+    "static/js/main.066fc3ed.chunk.js"
   ]
 }
