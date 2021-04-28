@@ -74,7 +74,6 @@ const GeoChart = () => {
         display: "flex",
         flexDirection: "column",
         width: "100%",
-        height: "100%",
         justifyContent: "space-around",
         alignItems: "center",
       }}
@@ -107,13 +106,13 @@ const GeoChart = () => {
           { value: "PRIMIST", color: "#db09ff" },
         ].map((i) => {
           return (
-            <div style={{display: 'flex', justifyContent: 'center'}}>
+            <div style={{ display: "flex", justifyContent: "center" }}>
               <DonutChart
                 color={i.color}
                 value={Math.ceil(Math.random() * (200 - 700) + 700)}
                 id={i.value}
               />
-                <BarChartSmall color={i.color} value={i.value} id={i.value} />
+              <BarChartSmall color={i.color} value={i.value} id={i.value} />
             </div>
           );
         })}

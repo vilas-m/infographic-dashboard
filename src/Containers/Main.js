@@ -26,7 +26,7 @@ const Main = () => {
         </div>
       </div>
       <div className={["columnContainer mt0"]}>
-        <div className={["chartCard w47"]}>
+        <div className={["chartCard flexColumnCenter w47"]}>
           <GeoChart />
         </div>
         <div className={["flexVerticle"]}>
