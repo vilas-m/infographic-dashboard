@@ -16,7 +16,7 @@ const GrBarChartContainer = () => {
                   width={100}
                   height={20}
                   bars={20}
-                  padding={0.3}
+                  padding={0.5}
                 />
                 <div className={["smallLegand"]}>Excepteur sint occaecat</div>
               </div>

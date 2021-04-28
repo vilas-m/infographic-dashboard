@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import data from "./data/world.json";
 import * as d3 from "d3";
-import DonutChart from "./DonutChart";
-import BarChartSmall from "./BarChartSmall";
 
 const GeoChart = () => {
   useEffect(() => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import BarChartSmall from '../Charts/BarChartSmall';
-import DonutChart from '../Charts/DonutChart';
+import GaugeChartHollow from '../Charts/GaugeChartHollow';
 import GeoChart from '../Charts/GeoChart';
 
 
@@ -16,7 +16,7 @@ const GeoChartContainer = () => {
         ].map((i) => {
           return (
             <div className={["flexRowCenter"]}>
-              <DonutChart
+              <GaugeChartHollow
                 color={i.color}
                 value={Math.ceil(Math.random() * (200 - 700) + 700)}
                 id={i.value}

@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
-import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
+import generateGradient from "../Utils/svgGradient";
+import "./chartStyles.scss";
 
 const Baloon = ({ text }) => {
   useEffect(() => {
@@ -28,26 +29,14 @@ const Baloon = ({ text }) => {
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-    let gradient = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "bubbleGradient")
-      .attr("x1", "0%")
-      .attr("x2", "100%")
-      .attr("y1", "0%")
-      .attr("y2", "100%");
-
-    gradient
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", firstColor)
-      .style("stop-opacity", 1);
-
-    gradient
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", secondColor)
-      .style("stop-opacity", 1);
+    let gradient = generateGradient({
+      svg,
+      id: "bubbleGradient",
+      x2: "100%",
+      y2: "100%",
+      firstColor,
+      secondColor,
+    });
 
     let value = Math.ceil(Math.random() * (30 - 360) + 360);
 

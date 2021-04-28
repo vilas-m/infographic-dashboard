@@ -1,13 +1,15 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 
-const DonutChart = ({color, value, id}) => {
+const GaugeChartHollow = ({ color, value, id }) => {
   useEffect(() => {
     draw();
   });
 
   let draw = () => {
-    d3.select("#donutChart" + id).select("svg").remove();
+    d3.select("#GaugeChartHollow" + id)
+      .select("svg")
+      .remove();
 
     let margin = 10;
     let width = 75;
@@ -16,11 +18,11 @@ const DonutChart = ({color, value, id}) => {
     let radius = Math.min(width, height) / 2 - margin;
 
     let svg = d3
-      .select("#donutChart" + id)
+      .select("#GaugeChartHollow" + id)
       .append("svg")
-      .attr("width", '100%')
-      .attr("height", '100%')
-      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .attr("viewBox", `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
@@ -46,24 +48,24 @@ const DonutChart = ({color, value, id}) => {
         d3
           .arc()
           .startAngle(0)
-          .endAngle(Number(value)/360 * Math.PI)
+          .endAngle((Number(value) / 360) * Math.PI)
           .innerRadius(radius * 0.8)
           .outerRadius(radius)
           .cornerRadius(10)
       )
       .attr("fill", color);
 
-      svg
+    svg
       .append("text")
       .attr("x", 0)
       .attr("y", 5)
       .text(value)
       .style("font-size", 17)
-      .attr("fill", '#fff')
-      .attr("text-anchor", "middle")
+      .attr("fill", "#fff")
+      .attr("text-anchor", "middle");
   };
 
-  return <div id={"donutChart" + id}></div>;
+  return <div id={"GaugeChartHollow" + id}></div>;
 };
 
-export default DonutChart;
+export default GaugeChartHollow;

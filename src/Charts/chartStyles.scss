@@ -44,7 +44,7 @@
   @extend %flexRow;
   @extend %fullWidth;
   @extend %justifyAroundCenter;
-  margin: 10px;
+  margin-top: 10px;
   font-weight: bold;
   font-size: 1vw;
   color: #adb5bd;
@@ -55,9 +55,6 @@
   @extend %flexRow;
   @extend %justifyCenter;
   width: inherit;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
 }
 
 .gaugeName {

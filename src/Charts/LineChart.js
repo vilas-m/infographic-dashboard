@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as d3 from "d3";
 import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
+import generateGradient from "../Utils/svgGradient";
 
 const LineChart = () => {
   let data = [];
@@ -46,26 +47,15 @@ const LineChart = () => {
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    let gradient = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "lineChartGradient")
-      .attr("x1", "0%")
-      .attr("x2", "100%")
-      .attr("y1", "100%")
-      .attr("y2", "100%");
-
-    gradient
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", secondColor)
-      .style("stop-opacity", 1);
-
-    gradient
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", firstColor)
-      .style("stop-opacity", 1);
+    let gradient = generateGradient({
+      svg,
+      id: "lineChartGradient",
+      x2: "100%",
+      y1: "100%",
+      y2: "100%",
+      firstColor: secondColor,
+      secondColor: firstColor,
+    });
 
     let defs = svg.append("defs");
 

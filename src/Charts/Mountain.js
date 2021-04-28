@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as d3 from "d3";
 import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
+import generateGradient from "../Utils/svgGradient";
 
 const Mountain = () => {
   let data1 = [
@@ -62,26 +63,10 @@ const Mountain = () => {
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    let gradient = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "mygrad")
-      .attr("x1", "0%")
-      .attr("x2", "0%")
-      .attr("y1", "0%")
-      .attr("y2", "100%");
-
-    gradient
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", firstColor)
-      .style("stop-opacity", 1);
-
-    gradient
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", secondColor)
-      .style("stop-opacity", 0.1);
+   generateGradient({
+      svg, id: 'mygrad', y2: '100%', firstColor,secondColor, opacity2: 0.1
+    })
+    
 
     let xScale = d3
       .scaleBand()

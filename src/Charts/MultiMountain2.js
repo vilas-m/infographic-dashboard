@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as d3 from "d3";
 import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
+import generateGradient from "../Utils/svgGradient";
 
 const MultiMountain2 = () => {
   let data1 = [
@@ -78,47 +79,23 @@ const MultiMountain2 = () => {
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-    let gradient = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "mygrad9") //id of the gradient
-      .attr("x1", "0%")
-      .attr("x2", "0%")
-      .attr("y1", "0%")
-      .attr("y2", "100%");
+    generateGradient({
+      svg,
+      y2: "100%",
+      id: "mmgrad1",
+      firstColor,
+      secondColor: firstColor,
+      opacity2: 0.1,
+    });
 
-    gradient
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", firstColor)
-      .style("stop-opacity", 1);
-
-    gradient
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", firstColor)
-      .style("stop-opacity", 0.1);
-
-    let gradient1 = svg
-      .append("defs")
-      .append("linearGradient")
-      .attr("id", "mygrad7") //id of the gradient
-      .attr("x1", "0%")
-      .attr("x2", "0%")
-      .attr("y1", "0%")
-      .attr("y2", "100%");
-
-    gradient1
-      .append("stop")
-      .attr("offset", "0%")
-      .style("stop-color", secondColor)
-      .style("stop-opacity", 1);
-
-    gradient1
-      .append("stop")
-      .attr("offset", "100%")
-      .style("stop-color", secondColor)
-      .style("stop-opacity", 0.1);
+    generateGradient({
+      svg,
+      y2: "100%",
+      id: "mmgrad2",
+      firstColor: secondColor,
+      secondColor,
+      opacity2: 0.1,
+    });
 
     let xScale = d3
       .scaleBand()
@@ -138,7 +115,7 @@ const MultiMountain2 = () => {
     svg
       .append("path")
       .datum(data1)
-      .attr("fill", "url(#mygrad9)")
+      .attr("fill", "url(#mmgrad1)")
       .attr(
         "d",
         d3
@@ -154,7 +131,7 @@ const MultiMountain2 = () => {
     svg
       .append("path")
       .datum(data2)
-      .attr("fill", "url(#mygrad7)")
+      .attr("fill", "url(#mmgrad2)")
       .attr(
         "d",
         d3
