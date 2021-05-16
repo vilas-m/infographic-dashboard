@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const BarChartSmall = ({ color, value, id }) => {
   useEffect(() => {
@@ -8,18 +9,17 @@ const BarChartSmall = ({ color, value, id }) => {
 
   let draw = () => {
     let data = [];
+    const margin = 5;
+    const width = 50;
+    const height = 25;
 
     for (let i = 0; i < 10; i++) {
-      data.push(Math.ceil(Math.random() * (5 - 20) + 20));
+      data.push(randomNumber(5, 20));
     }
 
     d3.select("#barChartSmall" + id)
       .select("svg")
       .remove();
-
-    let margin = 5;
-    let width = 50;
-    let height = 25;
 
     let svg = d3
       .select("#barChartSmall" + id)

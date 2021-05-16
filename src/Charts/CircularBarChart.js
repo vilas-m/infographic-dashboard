@@ -9,9 +9,9 @@ const CircularBarChart = () => {
   let draw = () => {
     d3.select("#circularBarChart").select("svg").remove();
 
-    let margin = 10;
-    let width = 80;
-    let height = 80;
+    const margin = 10;
+    const width = 80;
+    const height = 80;
 
     let radius = Math.min(width, height) / 2 - margin;
 

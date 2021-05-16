@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 import "./chartStyles.scss";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const CompleteBarChart = () => {
   useEffect(() => {
@@ -10,15 +11,15 @@ const CompleteBarChart = () => {
   let data = [];
 
   for (let i = 0; i < 12; i++) {
-    data.push(Math.ceil(Math.random() * (2 - 20) + 20));
+    data.push(randomNumber(2,20));
   }
 
   let draw = () => {
     d3.select("#completeBarChart1").select("svg").remove();
 
-    let margin = 10;
-    let width = 170;
-    let height = 60;
+    const margin = 10;
+    const width = 170;
+    const height = 60;
 
     let svg = d3
       .select("#completeBarChart1")

@@ -1,14 +1,17 @@
 import React from "react";
 import Baloon from "../Charts/Baloon";
 import "./styles.scss";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const BubbleContainer = () => {
+  const data = [12, 23, 34, 45, 56];
+
   return (
     <>
-      {[12, 23, 34, 45, 56].map((i) => {
+      {data.map((i) => {
         return (
           <div className={["flexColumnCentered"]} key={i}>
-            <Baloon text={Math.ceil(Math.random() * (30 - 99) + 99)} />
+            <Baloon text={randomNumber(33, 90)} />
             <div className={["baloonLegand"]}>
               Duis aute <br />
               irure dolor

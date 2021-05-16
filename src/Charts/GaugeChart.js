@@ -1,7 +1,13 @@
 import React, { useEffect } from "react";
 import * as d3 from "d3";
 import "./chartStyles.scss";
+import { randomNumber } from "../Utils/randomGenerator";
 
+const data = [
+  { value: "ADDLE", color: "#ea63fc" },
+  { value: "VOCIBUS", color: "#2719dc" },
+  { value: "CHORD", color: "#33b3ec" },
+];
 const Gauge = ({ color, id }) => {
   useEffect(() => {
     draw();
@@ -12,9 +18,9 @@ const Gauge = ({ color, id }) => {
       .select("svg")
       .remove();
 
-    let margin = 5;
-    let width = 100;
-    let height = 100;
+    const margin = 5;
+    const width = 100;
+    const height = 100;
 
     let radius = Math.min(width, height) / 2.1 - margin / 2;
 
@@ -26,7 +32,7 @@ const Gauge = ({ color, id }) => {
       .attr("viewBox", `0 0 ${width} ${height}`)
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
-    let value = Math.ceil(Math.random() * (30 - 360) + 360);
+    let value = Math.ceil(randomNumber(30,360));
 
     svg
       .append("circle")
@@ -72,15 +78,11 @@ const Gauge = ({ color, id }) => {
 const GaugeChart = () => {
   return (
     <div className={["w-100 h-100 flexRowCenter"]}>
-      {[
-        { value: "ADDLE", color: "#ea63fc" },
-        { value: "VOCIBUS", color: "#2719dc" },
-        { value: "CHORD", color: "#33b3ec" },
-      ].map((i) => {
+      {data.map((i) => {
         return (
           <div className={["w-30 flexColAroundCenter"]}>
             <Gauge color={i.color} id={i.value} />
-            <p className={['gaugeName']}>{i.value}</p>
+            <p className={["gaugeName"]}>{i.value}</p>
           </div>
         );
       })}

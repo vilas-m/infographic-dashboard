@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import { firstColor, secondColor } from "../Utils/chartColors";
 import generateGradient from "../Utils/svgGradient";
 import "./chartStyles.scss";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const Baloon = ({ text }) => {
   useEffect(() => {
@@ -14,9 +15,9 @@ const Baloon = ({ text }) => {
       .select("svg")
       .remove();
 
-    let margin = 5;
-    let width = 100;
-    let height = 100;
+    const margin = 5;
+    const width = 100;
+    const height = 100;
 
     let radius = Math.min(width, height) / 2.1 - margin / 2;
 
@@ -29,7 +30,7 @@ const Baloon = ({ text }) => {
       .append("g")
       .attr("transform", `translate(${width / 2}, ${height / 2})`);
 
-    let gradient = generateGradient({
+    generateGradient({
       svg,
       id: "bubbleGradient",
       x2: "100%",
@@ -38,7 +39,7 @@ const Baloon = ({ text }) => {
       secondColor,
     });
 
-    let value = Math.ceil(Math.random() * (30 - 360) + 360);
+    let value = randomNumber(30, 360);
 
     svg
       .append("circle")

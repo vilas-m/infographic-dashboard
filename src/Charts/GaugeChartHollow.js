@@ -11,9 +11,9 @@ const GaugeChartHollow = ({ color, value, id }) => {
       .select("svg")
       .remove();
 
-    let margin = 10;
-    let width = 75;
-    let height = 75;
+    const margin = 10;
+    const width = 75;
+    const height = 75;
 
     let radius = Math.min(width, height) / 2 - margin;
 

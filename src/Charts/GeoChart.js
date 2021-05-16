@@ -10,14 +10,14 @@ const GeoChart = () => {
   let draw = () => {
     d3.select("#geoChart").select("svg").remove();
 
-    let margin = {
+    const margin = {
       top: 5,
       bottom: 5,
       left: 5,
       right: 5,
     };
-    let width = 480;
-    let height = 250;
+    const width = 480;
+    const height = 250;
 
     let svg = d3
       .select("#geoChart")

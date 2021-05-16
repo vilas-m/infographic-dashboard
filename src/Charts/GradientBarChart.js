@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import * as d3 from "d3";
 import { firstColor, secondColor } from "../Utils/chartColors";
 import generateGradient from "../Utils/svgGradient";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const GradientBarChart = ({ id, width, height, bars, padding }) => {
   useEffect(() => {
@@ -11,7 +12,7 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
   let data = [];
 
   for (let i = 0; i < bars; i++) {
-    data.push(Math.ceil(Math.random() * (4 - 20) + 20));
+    data.push(randomNumber(4,20));
   }
 
   let draw = () => {
@@ -19,7 +20,7 @@ const GradientBarChart = ({ id, width, height, bars, padding }) => {
       .select("svg")
       .remove();
 
-    let margin = 0;
+    const margin = 0;
 
     let svg = d3
       .select("#gradientBarChart" + id)
