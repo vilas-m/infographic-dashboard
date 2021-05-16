@@ -56,14 +56,14 @@ const MultiMountain2 = () => {
   let draw = () => {
     d3.select("#multi-mountain-2").select("svg").remove();
 
-    let margin = {
+    const margin = {
       top: 5,
       bottom: 30,
       left: 15,
       right: 5,
     };
-    let width = 350;
-    let height = 150;
+    const width = 350;
+    const height = 150;
 
     let svg = d3
       .select("#multi-mountain-2")
@@ -114,6 +114,7 @@ const MultiMountain2 = () => {
 
     svg
       .append("path")
+      .attr("transform", `translate(${xScale.bandwidth()/2}, 0)`)
       .datum(data1)
       .attr("fill", "url(#mmgrad1)")
       .attr(
@@ -131,6 +132,7 @@ const MultiMountain2 = () => {
     svg
       .append("path")
       .datum(data2)
+      .attr("transform", `translate(${xScale.bandwidth()/2}, 0)`)
       .attr("fill", "url(#mmgrad2)")
       .attr(
         "d",

@@ -40,14 +40,14 @@ const Mountain = () => {
   let draw = () => {
     d3.select("#mountainFirst").select("svg").remove();
 
-    let margin = {
+    const margin = {
       top: 5,
       bottom: 20,
       left: 5,
       right: 5,
     };
-    let width = 550;
-    let height = 170;
+    const width = 550;
+    const height = 170;
 
     let svg = d3
       .select("#mountainFirst")
@@ -85,6 +85,8 @@ const Mountain = () => {
 
     svg
       .append("path")
+      .attr("transform", `translate(${xScale.bandwidth()/2}, 0)`)
+
       .datum(data1)
       .attr("fill", `url(#mygrad)`)
       .attr(
@@ -101,10 +103,9 @@ const Mountain = () => {
       );
     svg
       .append("path")
+      .attr("transform", `translate(${xScale.bandwidth()/2}, 0)`)
       .datum(data2)
       .attr("fill", `url(#mygrad)`)
-      // .attr("stroke", "steelblue")
-      // .attr("stroke-width", 4)
       .attr(
         "d",
         d3

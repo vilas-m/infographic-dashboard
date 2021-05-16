@@ -3,6 +3,7 @@ import * as d3 from "d3";
 import "./chartStyles.scss";
 import { firstColor, secondColor } from "../Utils/chartColors";
 import generateGradient from "../Utils/svgGradient";
+import { randomNumber } from "../Utils/randomGenerator";
 
 const LineChart = () => {
   let data = [];
@@ -11,7 +12,7 @@ const LineChart = () => {
   for (let i = 0; i < 10; i++) {
     data.push({
       year: startYear + i,
-      value: Math.ceil(Math.random() * (-7000 - 9999) + 9999),
+      value: randomNumber(-7000, 9000),
     });
   }
 
